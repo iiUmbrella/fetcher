@@ -60,8 +60,8 @@ sub echo_from_list {
 
     if ( $res->is_success ) {
         my @e = split /\n/, $res->content();
-        while (<@e>) {
-            my @description = split /:/, $_;
+        foreach my $d (@e) {
+            my @description = split /:/, $d;
             push @echoes, $description[0];
         }
     }
